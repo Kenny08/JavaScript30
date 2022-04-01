@@ -7,6 +7,30 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+  const canvas = document.querySelector('#Draw');
+  const ctx = canvas.getContext('2D')
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ctx.strokeStyle = '#BADA55';
+  ctx.lineJoined = 'round';
+  ctx.lineCap = 'round';
+  
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+  
+  function draw(e) {
+    if(!isDrawing) return; // stop the fn from running when they ar not mouseed down
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+    cobsole.log(e);
+  }
+  canvas.addEventListener('mousemove');
+  canvas.addEventListener('mousedown'() => is Drawing = true);
+  canvas.addEventListener('mouseup'() => is Drawing = false);
+  canvas.addEventListener('mouseout'() => is Drawing = false);
 </script>
 
 <style>
